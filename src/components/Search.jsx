@@ -14,7 +14,6 @@ const Search = (props) => {
             //checking if search param is valid 
             if (!listClick && typeof(searchParam) === "string" &&searchParam.length > 0 && searchParam.match("^[a-zA-Z\d]+(?: [A-Za-z\d]{2,})*$")) {
                 try {
-                    console.log("ApiKey = ", import.meta.env.VITE_API_KEY)
                     //getting search response
                     const response = await fetch(`http://api.weatherapi.com/v1/search.json?key=${import.meta.env.VITE_API_KEY}&q=${searchParam}`);
                     const data = await response.json();
