@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react"
 import Search from "./Search"
 import CurrentWeather from "./CurrentWeather";
-// import ForecastWeather from "./ForecastWeather";
 import HistorialWeather from "./HistoricalWeather";
+import logo from './../assets/large_weatherist.png'
 
 import './Stylesheets/Weather.css';
 
@@ -40,7 +40,7 @@ const WeatherComponent = () => {
     return (
         <div className="weather-component">
             <div className="logo-container">
-                <img src="/src/assets/large_weatherist.png" alt="icon" />
+                <img src={logo} alt="icon" />
             </div>
             <Search setCity={setCityParam} />
             {
