@@ -30,7 +30,6 @@ const HistorialWeather = ({ city, tempUnit, degree }) => {
                         minTemp : data?.forecast?.forecastday[0]?.day?.['mintemp_'+tempUnit],
                     }
                     result.push(obj);
-                    console.log("res=",result);
                 }
                 setWeatherData(result);
             }

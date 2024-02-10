@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './Stylesheets/HourlyForecast.css';
 const HourForecast = ({ forecastData, tempUnit, degree }) => {
-    console.log("for data", forecastData)
+    // console.log("for data", forecastData)
     return (
         forecastData && forecastData.length > 0 &&
         <div className="forecast-container">

@@ -18,13 +18,11 @@ const WeatherComponent = () => {
     }
 
     useEffect(() => {
-        console.log(cityParam)
         const getApiData = async () => {
             if (cityParam?.length > 0) {
                 try {
                     const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_API_KEY}&q=${cityParam}&aqi=yes&alerts=yes`)
                     const data = await response.json();
-                    console.log(data);
                     setWeatherData(data);
                 }
                 catch (err) {
