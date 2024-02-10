@@ -1,0 +1,98 @@
+.search-wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 10px auto;
+}
+.search-wrapper .input-container{
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+.search-wrapper .input-container input{
+    height: 55px;
+    width: 100%;
+    outline: none;
+    padding: 10px 10px;
+    font-size: 1.3rem;
+    background-color: var(--bg-clr);
+    color: var(--text-clr);
+    border-radius: 10px;
+    border: 1px solid var(--border-clr);
+}
+.input-container svg{
+    position: absolute;
+    color: var(--text-clr);
+    top: 28%;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+.input-container .search-icon{
+    right: 2%;
+}
+.input-container .recent-icon{
+    right: 5%;
+}
+.search-wrapper .search-result-wrapper{
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: var(--bg-clr);
+    z-index: 10;
+}
+.recent-result-wrapper{
+    position: absolute;
+    top: 60px;
+    width: 30%;
+    right: 0;
+    background-color: var(--bg-clr);
+    z-index: 50;
+}
+.recent-result-wrapper h2{
+    color: var(--border-clr);
+    font-size: 1.2rem;
+    padding: 2px 15px;
+}
+.search-result-wrapper .search-result-container{
+    width: 100%;
+    height: max-content;
+}
+.search-result-container .list-item, .recent-result-wrapper .list-item{
+    width: 100%;
+    padding: 10px 5px;
+    border-bottom: 1px solid var(--border-clr);
+    cursor: pointer;
+}
+.search-result-container .list-item:hover, .recent-result-wrapper .list-item:hover{
+    background-color: var(--hvr-clr-2);
+}
+.search-result-container .list-item:last-child, .recent-result-wrapper .list-item:last-child{
+    border: none;
+}
+.list-item h3{
+    font-size: 1.2rem;
+    color: var(--text-clr);
+}
+.list-item h4{
+    font-size: 0.9rem;
+    color: var(--border-clr);
+}
+@media screen and (max-width:1000px) {
+    .input-container .recent-icon{
+        right: 8%;
+    }
+}
+@media screen and (max-width:530px) {
+    .search-wrapper{
+        width: 90%;
+    }
+}
+@media screen and (max-width:400px) {
+    .input-container .recent-icon{
+        right: 10%;
+    }
+}

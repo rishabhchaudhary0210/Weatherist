@@ -1,0 +1,141 @@
+.weather-component {
+    width: 100%;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-component .location-container {
+    text-align: left;
+    width: 80%;
+}
+
+.weather-component .location-container h2 {
+    font-size: 2.8rem;
+    color: var(--text-clr);
+}
+
+.weather-component .location-container h3 {
+    font-size: 1.7rem;
+    color: var(--border-clr);
+}
+
+
+/* Toggle Buttton css */
+.button-wrapper {
+    width: 80%;
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 42px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    content: "°C";
+    height: 40px;
+    width: 40px;
+    left: 2px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: var(--border-clr);
+}
+
+input:checked+.slider::before {
+    content: "°F";
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--border-clr);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(38px);
+    -ms-transform: translateX(38px);
+    transform: translateX(38px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.logo-container{
+    width: 100%;
+}
+.logo-container img{
+   height: 120px;
+   margin: 0 25px;
+}
+@media screen and (max-width:1000px) {
+    html{
+        font-size: 90%;
+    }
+    .weather-component{
+        width: 95%;
+    }
+}
+@media screen and (max-width:500px) {
+    .switch {
+        width: 60px;
+        height: 30px;
+    }
+    .slider:before {
+        font-size: 1.3rem;
+        height: 30px;
+        width: 30px;
+        left: 2px;
+        bottom: 0px;
+    }
+    input:checked+.slider:before {
+        -webkit-transform: translateX(30px);
+        -ms-transform: translateX(30px);
+        transform: translateX(30px);
+    }
+}
+@media screen and (max-width:450px){
+    html{
+        font-size: 80%;
+    }
+}

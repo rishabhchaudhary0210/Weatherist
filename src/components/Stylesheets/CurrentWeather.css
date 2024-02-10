@@ -1,0 +1,128 @@
+.weather-container{
+    width: 80%;
+}
+.temp-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30%;
+    border-radius: 10px;
+    position: relative;
+}
+.icon-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    top: -30%;
+    right: -20%;
+}
+.icon-container img{        
+    width: 6rem;
+    height: 6rem;
+}
+.icon-container p{
+    width: 100%;
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--border-clr);
+}
+.temp-container{
+    /* width: 40%; */
+    position: relative;
+    flex-shrink: 0;
+}
+.temp-container span h2{
+    font-size: 8rem;
+}
+.temp-container span{
+    margin: 15px 10px;
+    padding: 10px 15px;
+}
+
+.temp-container span h4{
+    color: var(--border-clr);
+    font-size: 1.4rem;
+}
+.temp-container span h3{
+    font-size: 1.7rem;
+}
+.info-wrapper{
+    width: 35%;
+    flex-shrink: 0;
+}
+.info-box{
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    padding: 15px 0;
+}
+.info-box:not(:last-child){
+    border-bottom: 1px solid var(--border-clr);
+}
+.info-box h4{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--border-clr);
+}
+.info-box h4 svg{
+
+}
+.info-box span{
+
+}
+.info-box span h3{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+.info-box span h3 span{
+    font-size: 1.1rem;
+    color: var(--border-clr);
+}
+
+@media screen and (max-width:1000px) {
+    .weather-container{
+        width: 90%;
+    }
+    .temp-wrapper{
+        gap: 15%;
+    }
+}
+@media screen and (max-width:750px) {
+    .temp-wrapper{
+        flex-direction: column;
+    }
+    .temp-container{
+        margin-top: 30px;
+        width: 70%;
+    }
+    .info-wrapper{
+        width: 80%;
+    }
+}
+@media screen and (max-width:380px) {
+    .temp-container{
+        margin-top: 40px;
+        width: 90%;
+    }
+    .temp-container span h2{
+        font-size: 6.5rem;
+    }
+    .info-wrapper{
+        width: 95%;
+    }
+    .icon-container{
+        right: -12%;
+    }
+}
