@@ -1,7 +1,7 @@
 
 .theme-toggle-container{
     position: absolute;
-    top: 7%;
+    top: 5%;
     right: 2%;
     font-size: 2rem;
     font-weight: 800;
@@ -15,4 +15,9 @@
 }
 .theme-toggle-container:hover{
     background-color: var(--hvr-clr-2);
+}
+@media screen and (max-width:600px) {
+    .theme-toggle-container{
+        top: 2.5%;
+    }
 }
