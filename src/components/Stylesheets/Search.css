@@ -81,9 +81,24 @@
     font-size: 0.9rem;
     color: var(--border-clr);
 }
+.search-wrapper .behind{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.05);
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+}
+
 @media screen and (max-width:1000px) {
     .input-container .recent-icon{
         right: 8%;
+    }
+}
+@media screen and (max-width:720px) {
+    .recent-result-wrapper{
+        width: 50%;
     }
 }
 @media screen and (max-width:530px) {

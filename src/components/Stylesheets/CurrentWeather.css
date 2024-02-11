@@ -111,7 +111,7 @@
         width: 80%;
     }
 }
-@media screen and (max-width:380px) {
+@media screen and (max-width:500px) {
     .temp-container{
         margin-top: 40px;
         width: 90%;
@@ -124,5 +124,6 @@
     }
     .icon-container{
         right: -12%;
+        top: -35%;
     }
 }

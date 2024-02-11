@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import './Stylesheets/Search.css';
 
 const Search = (props) => {
@@ -9,10 +9,12 @@ const Search = (props) => {
     const [showRecentSearch, setShowRecent] = useState(false);
     const [recentResult, setRecentResult] = useState([]);
 
+    const recentRef = useRef(null);
+    const searchResultRef = useRef(null);
     useEffect(() => {
         const getApiData = setTimeout(async () => {
             //checking if search param is valid 
-            if (!listClick && typeof(searchParam) === "string" &&searchParam.length > 0 && searchParam.match("^[a-zA-Z\d]+(?: [A-Za-z\d]{2,})*$")) {
+            if (!listClick && typeof(searchParam) === "string" &&searchParam.length > 0 && searchParam.match("^[a-zA-Z0-9\s]+$")) {
                 try {
                     //getting search response
                     const response = await fetch(`http://api.weatherapi.com/v1/search.json?key=${import.meta.env.VITE_API_KEY}&q=${searchParam}`);
@@ -28,6 +30,10 @@ const Search = (props) => {
         //debouncing 
         return () => clearTimeout(getApiData)
     }, [searchParam]);
+
+    useEffect(()=>{
+
+    })
 
     const AddRecentSearch = (val) => {
         let recent = localStorage.getItem("recent");
@@ -66,7 +72,6 @@ const Search = (props) => {
         setSearchParam(e.target.value.toString());
     }
     const HandleRecentToggle = () => {
-        console.log("CLicked");
         if (!showRecentSearch) {
             const data = localStorage.getItem("recent").split(",");
             if (!data || data.length === 0) {
@@ -75,7 +80,6 @@ const Search = (props) => {
             else {
                 setRecentResult(data);
             }
-            console.log(data);
             setShowRecent(true);
         }
         else {
@@ -92,11 +96,11 @@ const Search = (props) => {
                 <IconClockRotateLeft className="recent-icon" 
                 onClick={HandleRecentToggle}
                 />
-                <IconSearch className="search-icon" />
+                <IconSearch className="search-icon" onClick={()=>HandleListClick(searchParam)}/>
             </div>
             {
                 showRecentSearch && recentResult?.length > 0 &&
-                <div className="recent-result-wrapper">
+                <div className="recent-result-wrapper" ref={recentRef}>
                     <h2>Recents</h2>
                     {
                         recentResult?.map((ele, index) =>
@@ -110,7 +114,7 @@ const Search = (props) => {
             }
             {
                 typeof (searchResult) === 'object' && searchParam.length > 0 && !listClick &&
-                <div className="search-result-wrapper">
+                <div className="search-result-wrapper" ref={searchResultRef}>
                     {
                         searchResult?.length > 0 ?
                             <div className="search-result-container">
@@ -134,6 +138,7 @@ const Search = (props) => {
                     }
                 </div>
             }
+            {/* {(showRecentSearch || (searchResult?.length>0 && !listClick)) && <div className="behind"></div>} */}
         </div>
     )
 }
