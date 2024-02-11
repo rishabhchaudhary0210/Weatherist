@@ -7,7 +7,7 @@ import logo from './../assets/large_weatherist.png'
 
 import './Stylesheets/Weather.css';
 
-const WeatherComponent = () => {
+const WeatherComponent = ({HandleThemeToggle}) => {
     const [cityParam, setCityParam] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
     const [tempUnit, setTempUnit] = useState('c');
@@ -30,6 +30,19 @@ const WeatherComponent = () => {
                     }
                     const data = await response.json();
                     setWeatherData(data);
+                    const body = document?.querySelector("body").classList;
+                    if(data.current.is_day === 0){
+                        HandleThemeToggle(true);
+                        if(!body?.contains("dark")){
+                            body.add('dark');
+                        }
+                    }
+                    else{
+                        HandleThemeToggle(false);
+                        if(body?.contains("dark")){
+                            body.remove('dark');
+                        }
+                    }
                 }
                 catch (err) {
                     // console.log(err);
@@ -43,16 +56,16 @@ const WeatherComponent = () => {
 
 
     return (
-        
-            <div className="weather-component">
-                <div className="logo-container">
-                    <img src={logo} alt="icon" />
-                </div>
-                <Search setCity={setCityParam} />
-                { error ? <div className="error-container">
-                    {error}
-                </div> :
-                    <>
+
+        <div className="weather-component">
+            <div className="logo-container">
+                <img src={logo} alt="icon" />
+            </div>
+            <Search setCity={setCityParam} />
+            {error ? <div className="error-container">
+                {error}
+            </div> :
+                <>
                     {
                         weatherData &&
                         <div className="button-wrapper">
@@ -86,7 +99,7 @@ const WeatherComponent = () => {
                         degree={degree}
                     />}
                 </>}
-            </div>
+        </div>
     )
 }
 

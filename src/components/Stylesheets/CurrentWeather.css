@@ -36,6 +36,8 @@
 }
 .temp-container span h2{
     font-size: 8rem;
+    color: var(--text-clr);
+
 }
 .temp-container span{
     margin: 15px 10px;
@@ -48,6 +50,7 @@
 }
 .temp-container span h3{
     font-size: 1.7rem;
+    color: var(--text-clr);
 }
 .info-wrapper{
     width: 35%;
@@ -80,11 +83,13 @@
 .info-box span{
 
 }
-.info-box span h3{
+.info-box h3{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    color: var(--text-clr);
+
 }
 .info-box span h3 span{
     font-size: 1.1rem;

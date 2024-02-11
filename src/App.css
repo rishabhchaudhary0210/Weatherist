@@ -1,0 +1,18 @@
+
+.theme-toggle-container{
+    position: absolute;
+    top: 7%;
+    right: 2%;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--border-clr);
+    cursor: pointer;
+    background-color: transparent;
+    display: grid;
+    place-items: center;
+    border-radius: 99999px;
+    padding: 10px 10px;
+}
+.theme-toggle-container:hover{
+    background-color: var(--hvr-clr-2);
+}

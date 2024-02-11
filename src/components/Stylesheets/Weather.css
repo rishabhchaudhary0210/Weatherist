@@ -22,7 +22,11 @@
     color: var(--border-clr);
 }
 
-
+.error-container{
+    color: var(--border-clr);
+    font-size: 1.6rem;
+    margin: 10px auto;
+}
 /* Toggle Buttton css */
 .button-wrapper {
     width: 80%;
@@ -53,7 +57,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--hvr-clr-2);
     -webkit-transition: .4s;
     transition: .4s;
 }
